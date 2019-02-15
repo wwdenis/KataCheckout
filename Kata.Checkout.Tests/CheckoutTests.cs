@@ -9,16 +9,19 @@ namespace Tests
         {
         }
 
-        [Test]
-        public void Check_Totals()
+        [TestCase(50, "A")]
+        [TestCase(30, "B")]
+        public void Check_Totals_With_Incremental_Scans(decimal expectedTotal, params string[] skus)
         {
             var checkout = new SimpleCheckout();
 
-            checkout.Scan("DUMMY");
+            foreach (var sku in skus)
+            {
+                checkout.Scan(sku);
+            }
 
             decimal total = checkout.Calculate();
-            decimal expectedTotal = 0;
-
+            
             Assert.AreEqual(expectedTotal, total);
         }
     }
