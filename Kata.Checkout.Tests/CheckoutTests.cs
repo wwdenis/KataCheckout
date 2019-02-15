@@ -1,3 +1,4 @@
+using Kata.Checkout.Business.Models;
 using Kata.Checkout.Business.Services;
 using NUnit.Framework;
 
@@ -10,7 +11,19 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            _checkout = new SimpleCheckout();
+            Product[] products = 
+            {
+                new Product("A", 50),
+                new Product("B", 30)
+            };
+
+            IPriceRule[] rules =
+            {
+                new NormalPriceRule()
+            };
+            
+            _checkout = new ParameterizedCheckout(products, rules);
+            // _checkout = new SimpleCheckout();
         }
 
         [TestCase(50, "A")]                         // Normal Price (single)
