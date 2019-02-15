@@ -26,6 +26,6 @@ The purpose of this code is to validate code isolation techniques (e.g. TDD, SRP
 
 
 ## Credits
-https://github.com/Carnect/checkout
-https://rubygem.me/2014/01/16/shopping-cart-kata/
-http://codekata.com/kata/kata09-back-to-the-checkout/
+* https://github.com/Carnect/checkout
+* https://rubygem.me/2014/01/16/shopping-cart-kata/
+* http://codekata.com/kata/kata09-back-to-the-checkout/
