@@ -14,7 +14,9 @@ namespace Tests
             Product[] products = 
             {
                 new Product("A", 50),
-                new Product("B", 30)
+                new Product("B", 30),
+                new Product("C", 20),
+                new Product("D", 15)
             };
 
             IPriceRule[] rules =
@@ -35,6 +37,16 @@ namespace Tests
         [TestCase(130, "A", "A", "A")]              // One Offer
         [TestCase(45, "B", "B")]                    // One Offer
         [TestCase(175, "A", "A", "A", "B", "B")]    // Two Offers
+
+        // Test Cases from : http://codekata.com/kata/kata09-back-to-the-checkout/
+        [TestCase(0, "")]
+        [TestCase(115, "C", "D", "B", "A")]
+        [TestCase(180, "A", "A", "A", "A")]
+        [TestCase(230, "A", "A", "A", "A", "A")]
+        [TestCase(260, "A", "A", "A", "A", "A", "A")]
+        [TestCase(160, "A", "A", "A", "B")]
+        [TestCase(190, "A", "A", "A", "B", "B", "D")]
+        [TestCase(190, "D", "A", "B", "A", "B", "A")]
         public void Check_Totals_With_Incremental_Scans(decimal expectedTotal, params string[] skus)
         {
             foreach (var sku in skus)
