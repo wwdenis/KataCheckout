@@ -1,3 +1,4 @@
+using Kata.Checkout.Business;
 using NUnit.Framework;
 
 namespace Tests

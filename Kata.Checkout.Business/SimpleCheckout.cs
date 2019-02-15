@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Tests
+namespace Kata.Checkout.Business
 {
-    internal class SimpleCheckout
+    public class SimpleCheckout
     {
         // Price information (Tupples)
         readonly (string, decimal)[] prices =
@@ -26,7 +26,7 @@ namespace Tests
         {
         }
         
-        internal decimal Calculate()
+        public decimal Calculate()
         {
             decimal total = 0;
 
