@@ -1,21 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Tests
 {
     internal class SimpleCheckout
     {
+        readonly List<string> items = new List<string>();
+
         public SimpleCheckout()
         {
         }
 
         internal decimal Calculate()
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
-        internal void Scan(string sku)
+        public void Scan(string sku)
         {
-            throw new NotImplementedException();
+            items.Add(sku);
         }
     }
 }
