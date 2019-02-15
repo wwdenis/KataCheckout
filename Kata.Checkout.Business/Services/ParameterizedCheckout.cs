@@ -13,9 +13,9 @@ namespace Kata.Checkout.Business.Services
 
         readonly List<string> _skus = new List<string>();
 
-        public ParameterizedCheckout(Product[] products, IPriceRule[] strategies)
+        public ParameterizedCheckout(Product[] products, IPriceRule[] rules)
         {
-            _rules = strategies ?? throw new ArgumentNullException();
+            _rules = rules ?? throw new ArgumentNullException();
             _products = products ?? throw new ArgumentNullException();
         }
 

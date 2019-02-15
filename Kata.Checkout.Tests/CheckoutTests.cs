@@ -19,9 +19,11 @@ namespace Tests
 
             IPriceRule[] rules =
             {
+                new QuantityOfferRule("A", 3, 130),
+                new QuantityOfferRule("B", 2, 45),
                 new NormalPriceRule()
             };
-            
+
             _checkout = new ParameterizedCheckout(products, rules);
             // _checkout = new SimpleCheckout();
         }
