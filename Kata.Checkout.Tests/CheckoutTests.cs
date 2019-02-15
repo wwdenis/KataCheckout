@@ -1,13 +1,16 @@
-using Kata.Checkout.Business;
+using Kata.Checkout.Business.Services;
 using NUnit.Framework;
 
 namespace Tests
 {
     public class CheckoutTests
     {
+        ICheckout _checkout;
+        
         [SetUp]
         public void Setup()
         {
+            _checkout = new SimpleCheckout();
         }
 
         [TestCase(50, "A")]                         // Normal Price (single)
@@ -19,14 +22,12 @@ namespace Tests
         [TestCase(175, "A", "A", "A", "B", "B")]    // Two Offers
         public void Check_Totals_With_Incremental_Scans(decimal expectedTotal, params string[] skus)
         {
-            var checkout = new SimpleCheckout();
-
             foreach (var sku in skus)
             {
-                checkout.Scan(sku);
+                _checkout.Scan(sku);
             }
 
-            decimal total = checkout.Calculate();
+            decimal total = _checkout.Calculate();
             
             Assert.AreEqual(expectedTotal, total);
         }

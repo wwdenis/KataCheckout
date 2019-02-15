@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Kata.Checkout.Business
+namespace Kata.Checkout.Business.Services
 {
-    public class SimpleCheckout
+    public class SimpleCheckout : ICheckout
     {
         // Price information (Tupples)
         readonly (string, decimal)[] prices =
