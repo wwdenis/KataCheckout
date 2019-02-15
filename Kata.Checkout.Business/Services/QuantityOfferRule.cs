@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Kata.Checkout.Business.Services
 {
+    /// <summary>
+    /// Calculates the total item price for items in offers
+    /// </summary>
     public class QuantityOfferRule : IPriceRule
     {
         readonly string _sku;
@@ -29,6 +32,7 @@ namespace Kata.Checkout.Business.Services
                 int multiple = Math.DivRem(selected.Quantity, _quantity, out int remainder);
                 total = multiple * _price;
 
+                // If the item quantity is exact of multiple of the current Offer, the item is removed from the collection
                 if (remainder > 0)
                     selected.Quantity = remainder;
                 else

@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Kata.Checkout.Business.Services
 {
+    /// <summary>
+    /// Represents a hardcoded simple Checkout
+    /// </summary>
     public class SimpleCheckout : ICheckout
     {
         // Price information (Tupples)
